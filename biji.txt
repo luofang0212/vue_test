@@ -1,0 +1,23 @@
+git status // 查看状态
+git add 文件名 // 将某个文件存入暂存区
+git add . // 将所有文件提交到暂存区
+git add -p 文件名 // 一个文件分多次提交
+git stash -u -k // 提交部分文件内容 到仓库 例如本地有3个文件 a b c 只想提交a b到远程仓库 git add a b 然后 git stash -u -k 再然后git commit -m "备注信息" 然后再push push之后 git stash pop 把之前放入堆栈的c拿出来 继续下一波操作
+git commit -m "提交的备注信息"  // 提交到仓库
+
+删除放入暂存区文件的方法（已commit后）
+git rm 文件名 // 将该文件从commit后撤回到add后
+git reset HEAD^ --hard // 删除后 可以用git rm 文件名再回撤一步
+
+git show HEAD // 查看最后一次提交修改的详细信息 也可以用git show 哈希值 查看对应的内容
+
+git merge 分支名 // 把该分支的内容合并到现有分支上
+
+git branch 分支名 // 新建分支
+git branch // 查看当前所有分支
+git checkout 分支名 // 检出分支
+git checkout -b 分支名 // 创建并切换分支
+git checkout commitId 文件名（文件路径下的文件名） 还原这个文件到对应的commitId的版本
+
+git push -u origin 分支名 // 将本地分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push 也可解决 git建立远程分支关联时出现fatal ... upstram的问题
+
