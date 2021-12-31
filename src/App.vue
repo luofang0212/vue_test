@@ -1,10 +1,17 @@
 <template>
   <div id="app">
-    根组件
-        <a href="http://www.baidu.com">百度</a>
+    <School></School>
   </div>
 </template>
 
+<script>
+import School from './components/School'
+export default {
+  components: {School},
+};
+</script>
 <style lang="less">
-
+#app {
+  margin: 0 20px;
+}
 </style>
