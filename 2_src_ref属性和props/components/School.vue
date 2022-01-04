@@ -1,6 +1,6 @@
 <template>
     <div class="school">
-        <h3>学校信息</h3>
+        <h1>学校信息</h1>
         <h5>{{name}}</h5>
         <h5>{{address}}</h5>
     </div>
@@ -14,9 +14,7 @@ export default {
             name:'尚硅谷',
             address:'北京'
         }
-    },
-
-    
+    }
 }
 </script>
 

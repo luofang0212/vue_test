@@ -1,17 +1,38 @@
 <template>
   <div id="app">
-    <School></School>
+    <div class="todo-container">
+        <myHeader></myHeader>
+        <myList></myList>
+        <myFooter></myFooter>
+
+    </div>
   </div>
 </template>
 
 <script>
-import School from './components/School'
+import myHeader from './components/myHeader.vue'
+import myList from './components/myList.vue'
+import myFooter from './components/myFooter.vue'
+
+
 export default {
-  components: {School},
+  components: {myHeader,myList,myFooter},
 };
 </script>
-<style lang="less">
-#app {
-  margin: 0 20px;
-}
+<style>
+  *{
+      margin: 0;
+      padding: 0;
+  }
+
+  /* todo框 */
+  .todo-container {
+      box-sizing: border-box;
+      padding: 12px;
+      margin: 20px auto;
+      width: 600px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+
 </style>
