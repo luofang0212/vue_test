@@ -18,11 +18,8 @@ export default {
   components: {myHeader,myList,myFooter},
   data(){
     return {
-       todos:[
-                {id: '001', title: '吃饭', done: true},
-                {id: '002', title: '喝酒', done: false},
-                {id: '003', title: '散步', done: true}
-            ]
+       // 从localStorage读取todos,如果从localStorage读出来值为null 则给一个空数组，避免长度计算出错
+       todos:JSON.parse(localStorage.getItem('todos')) || []
     }
   },
   methods:{
@@ -66,10 +63,18 @@ export default {
         })
       }
     }
+  },
+  watch:{
+    // 监视todos数组，有变化就存到localStorage里
+    todos:{
+      // 开启深度监视
+      deep:true,
+      handler(value){
+        localStorage.setItem('todos',JSON.stringify(value))
+      }
+    }
   }
-  
-  
-};
+}
 </script>
 
 <style>
