@@ -3,19 +3,9 @@
    
     <ul class="list-item">
         <li>
-            <input type="checkbox">
-            <p>xxxx</p>
-            <a href="javascript:;">删除</a>
-        </li>
-        <li>
-            <input type="checkbox">
-            <p>xxxx</p>
-            <a href="javascript:;">删除</a>
-        </li>
-        <li>
-            <input type="checkbox">
-            <p>xxxx</p>
-            <a href="javascript:;">删除</a>
+            <input type="checkbox" :checked="todo.done" @change="handleCheck(todo.id)">
+            <p>{{todo.title}}</p>
+            <a href="javascript:;" @click="handleDel(todo.id)">删除</a>
         </li>
     </ul>
 
@@ -23,14 +13,29 @@
 
 <script>
 export default {
-    
+    name: 'listItem',
+    props:['todo','checkTodo','delTodo'],
+    methods:{
+        // 勾选or不勾选
+        handleCheck(id){
+            // 通知App组件将对应的todos的id进行取反
+            this.checkTodo(id)
+        },
+        handleDel(id){
+            // 通知App组件将对应的todos的id进行删除
+            // 确认是否删除
+            if(confirm('确定是否要删除？')){
+                this.delTodo(id)
+            }
+            
+        }
+    }
 }
 </script>
 
 <style scoped>
     .list-item{
-        width: 576px;
-        border-top: 1px solid #ccc;
+        width: 574px;
     }
 
     .list-item li{
@@ -38,14 +43,17 @@ export default {
         box-sizing: border-box;
         padding: 2px 5px;
         height: 38px;
-        border: 1px solid #ccc;
-        border-top: none;
         line-height: 38px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .list-item li:hover{
+        background: #ccc;
     }
 
     .list-item li input{
         float: left;
-        margin-top: 11px;
+        margin-top: 9px;
     }
 
     .list-item li p{
@@ -58,7 +66,7 @@ export default {
 
     .list-item li a{
         float: right;
-        margin: 6px 5px 0 0;
+        margin: 8px 5px 0 0;
         text-decoration: none;
         display: block;
         width: 38px;
