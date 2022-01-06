@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/todo.css">
+</head>
+<body>
+    <div class="todo-container">
+        <!-- 添加todo框 -->
+        <div class="add-todo">
+            <input type="text" placeholder="请输入你的任务名称，按回车键确认">
+        </div>
+        <!-- 任务列表 -->
+        <div class="todo-list">
+            <ul>
+                <li>
+                    <input type="checkbox">
+                    <p>xxxx</p>
+                    <a href="javascript:;">删除</a>
+                </li>
+                <li>
+                    <input type="checkbox">
+                    <p>xxxx</p>
+                    <a href="javascript:;">删除</a>
+                </li>
+                <li>
+                    <input type="checkbox">
+                    <p>xxxx</p>
+                    <a href="javascript:;">删除</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 底部 -->
+        <div class="todo-footer">
+            <!-- 全选or全不选 -->
+            <input type="checkbox">
+            <!-- 统计 -->
+            <div class="total">
+                <span>已完成0 /</span>
+                <span>全部0</span>
+            </div>
+            <!-- 清除 -->
+            <button type="button">清除已完成任务</button>
+        </div>
+    </div>
+</body>
+</html>

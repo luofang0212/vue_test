@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* todo框 */
+.todo-container {
+    box-sizing: border-box;
+    padding: 12px;
+    margin: 20px auto;
+    width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* 添加todo */
+.add-todo {
+    box-sizing: border-box;
+    width: 576px;
+    height: 38px;
+}
+
+.add-todo input{
+    box-sizing: border-box;
+    padding: 0 5px;
+    width: 576px;
+    height: 38px;
+    line-height: 38px;
+    color: #333;
+    font-size: 14px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* todo列表 */
+.todo-list {
+    margin-top: 14px;
+    width: 576px;
+    border-radius: 5px;
+}
+
+.list-item{
+    width: 576px;
+    border-top: 1px solid #ccc;
+}
+
+.list-item li{
+    list-style: none;
+    box-sizing: border-box;
+    padding: 2px 5px;
+    height: 38px;
+    border: 1px solid #ccc;
+    border-top: none;
+    line-height: 38px;
+}
+
+.list-item li input{
+    float: left;
+    margin-top: 10px;
+}
+
+.list-item li p{
+    float: left;
+    margin-left: 12px;
+    height: 38px;
+    font-size: 14px;
+    line-height: 31px;
+}
+
+.list-item li a{
+    float: right;
+    margin: 6px 5px 0 0;
+    text-decoration: none;
+    display: block;
+    width: 38px;
+    height: 18px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: 18px;
+    background-color: #da4f49;
+    border-radius: 2px;
+    
+}
+
+/* 底部 */
+.todo-footer{
+    box-sizing: border-box;
+    padding: 0 5px;
+    margin-top: 14px;
+    width: 576px;
+    height: 38px;
+    line-height: 38px;
+}
+
+.todo-footer input{
+    float: left;
+    margin-top: 12px;
+}
+
+.todo-footer .total{
+    float: left;
+    margin-left: 12px;
+}
+
+.todo-footer button{
+    float: right;
+    margin-top: 5px;
+    width: 110px;
+    height: 28px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 28px;
+    color: #fff;
+    background-color: #da4f49;
+    border: 1px solid #da4f49;
+    border-radius: 5px;
+}
