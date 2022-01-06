@@ -29,7 +29,7 @@ export default {
     border-radius: 5px;
 }
 .list-item{
-        width: 574px;
-    }
+    width: 574px;
+}
 </style>
     

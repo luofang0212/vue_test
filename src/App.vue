@@ -66,6 +66,11 @@ export default {
     // 编辑任务名称
     editTodo(id,title){
       console.log(id,title)
+      this.todos.forEach((todo) => {
+        if(todo.id == id){
+          todo.title = title
+        }
+      })
     }
   },
   watch:{

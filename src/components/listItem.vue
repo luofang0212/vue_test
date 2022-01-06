@@ -1,12 +1,22 @@
 <template>
      <!-- 任务列表 -->
-    <li>
+    <li @mouseleave="handleBlur(todo)">
         <input class="check-kuan" type="checkbox" :checked="todo.done" @change="handleCheck(todo.id)">
-        <p v-if="(isEdit === 0)">{{todo.title}}</p>
-        <input v-if="(isEdit === 1)" class="todo-name" type="text" v-model="titleName">
-        <a class="btn btn-del" href="javascript:;" @click="handleDel(todo.id)">删除</a>
-        <a class="btn btn-edit" href="javascript:;" @click="handleEdit(todo.id)">编辑</a>
+        <!-- 显示任务名称 -->
+        <p v-show="!todo.isEdit">{{todo.title}}</p>
 
+        <!-- 显示输入的可编辑框 -->
+        <input v-show="todo.isEdit" 
+        class="todo-name" 
+        type="text" 
+        v-model="titleName" 
+        @blur="handleBlur(todo)"
+        @keyup.enter="handleBlur(todo)"
+        ref="titleInput">
+
+        <a class="btn btn-del" href="javascript:;" @click="handleDel(todo.id)">删除</a>
+        <a class="btn btn-edit" href="javascript:;" 
+        @click="handleEdit(todo)" v-show="!todo.isEdit">编辑</a>
     </li>
 
 
@@ -18,8 +28,6 @@ export default {
     props:['todo'],
     data(){
         return {
-            // 0-查看，1-编辑
-            isEdit: 0,
             titleName: this.todo.title
         }
     },
@@ -38,13 +46,29 @@ export default {
                 // this.delTodo(id)
                 this.$bus.$emit('delTodo',id)
             }
-            
         },
         // 编辑
-        handleEdit(id,title){
-            this.isEdit = 1
-            this.titleName = this.todo.title
-            this.$bus.$emit('editTodo',id,this.titleName)
+        handleEdit(todo){
+            if(todo.hasOwnProperty('isEdit')){
+                todo.isEdit = true
+            }else{
+                console.log("没有有isEdit")
+                this.$set(todo,'isEdit',true)
+            }
+            this.$nextTick(function(){
+                this.$refs.titleInput.focus()
+            })
+        },
+        handleBlur(todo){
+            todo.isEdit = false
+            // console.log(this.titleName)
+            if(this.titleName.trim() == '') {
+                this.titleName = this.todo.title
+                return alert("任务内容不能为空")
+            }else if(this.titleName.trim() === todo.title){
+                return
+            }
+            this.$bus.$emit('editTodo',todo.id,this.titleName)
         }
     }
 }
